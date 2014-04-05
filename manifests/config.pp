@@ -4,7 +4,7 @@
 #
 #   include mysql::config
 class mysql::config(
-  $port       = 13306
+  $port       = 3306
 ) {
   require boxen::config
 
@@ -14,5 +14,5 @@ class mysql::config(
   $executable = "${boxen::config::homebrewdir}/bin/mysqld_safe"
   $logdir     = "${boxen::config::logdir}/mysql"
   $logerror   = "${logdir}/error.log"
-  $socket     = "${datadir}/socket"
+  $socket     = "/tmp/mysql.sock"
 }
